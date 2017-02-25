@@ -566,3 +566,1460 @@ puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
   Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1901.8ms)
 Started PUT "/__web_console/repl_sessions/035ba54b45fe977f44106b435ad14aea" for ::1 at 2017-02-23 20:30:52 +0530
 Started PUT "/__web_console/repl_sessions/035ba54b45fe977f44106b435ad14aea" for ::1 at 2017-02-23 20:31:06 +0530
+  [1m[36mUser Load (13.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[35m (17.1ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (11.5ms)[0m  [1m[34mSELECT GET_LOCK('79240494542257020', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (424.8ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreatePosts (20170225055451)
+  [1m[35m (667.1ms)[0m  [1m[35mCREATE TABLE `posts` (`id` int AUTO_INCREMENT PRIMARY KEY, `title` varchar(255), `description` text, `user_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_posts_on_user_id`  (`user_id`), CONSTRAINT `fk_rails_5b5ddfd518`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (30.0ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170225055451')[0m
+  [1m[35m (129.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (9.0ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (10.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('79240494542257020')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (19.1ms)[0m  [1m[35mSHOW CREATE TABLE `posts`[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'posts'[0m
+  [1m[35m (1.0ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (1.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+Started GET "/" for ::1 at 2017-02-25 12:18:50 +0530
+Started GET "/" for ::1 at 2017-02-25 12:18:50 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (7.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by HomesController#index as HTML
+Processing by HomesController#index as HTML
+Completed 401 Unauthorized in 146ms (ActiveRecord: 0.0ms)
+
+
+Completed 401 Unauthorized in 81ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-02-25 12:19:04 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (430.3ms)
+Completed 200 OK in 4938ms (Views: 4870.8ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-02-25 12:19:21 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9/4cvCzfd2+Ul2PffrjmJQV7x9n7njp04255nOnhJ/BiUH6DscvdDxp2+xFoMctsoPIaxpMnuiO3wgCjBdmsdA==", "user"=>{"email"=>"praveenitmec@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'praveenitmec@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 399ms (ActiveRecord: 2.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9/4cvCzfd2+Ul2PffrjmJQV7x9n7njp04255nOnhJ/BiUH6DscvdDxp2+xFoMctsoPIaxpMnuiO3wgCjBdmsdA==", "user"=>{"email"=>"praveenitmec@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (46.6ms)
+Completed 200 OK in 498ms (Views: 313.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-02-25 12:19:29 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gGFf8b1eEe1kq8xVbG1FML3eB7sfJmlBy5aJF+OIt+4Vzz3OIEq7jepKVJt65Gh5GFfapHef6RafOvAoD7A8ag==", "user"=>{"email"=>"praveenitmec@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'praveenitmec@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 196ms (ActiveRecord: 1.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gGFf8b1eEe1kq8xVbG1FML3eB7sfJmlBy5aJF+OIt+4Vzz3OIEq7jepKVJt65Gh5GFfapHef6RafOvAoD7A8ag==", "user"=>{"email"=>"praveenitmec@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (32.5ms)
+Completed 200 OK in 439ms (Views: 252.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-02-25 12:19:37 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hIW6ojNkfI8Kxeyg3Mf7ShwnggB3j+vhJHbZeEahWGARK9idrnDW74QkdG7KTtYDua5fHx82a7Zw2qBHqpnT5A==", "user"=>{"email"=>"praveenitmec@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'praveenitmec@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 193ms (ActiveRecord: 1.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hIW6ojNkfI8Kxeyg3Mf7ShwnggB3j+vhJHbZeEahWGARK9idrnDW74QkdG7KTtYDua5fHx82a7Zw2qBHqpnT5A==", "user"=>{"email"=>"praveenitmec@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 524ms (Views: 336.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_ip" for ::1 at 2017-02-25 12:19:47 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_ip"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered collection of C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [24 times] (39.1ms)
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (23.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (2035.6ms)
+Started GET "/users/sign_up" for ::1 at 2017-02-25 12:19:59 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 271ms (Views: 269.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/new" for ::1 at 2017-02-25 12:20:13 +0530
+Processing by Devise::PasswordsController#new as HTML
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (33.1ms)
+Completed 200 OK in 309ms (Views: 257.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password" for ::1 at 2017-02-25 12:20:27 +0530
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S7l4QlNwMVsI+/s8FRkp+fq3LmMcYHJ34qPv4k+qejjeFxp9zmSbO4YaY/IDkASwXz7zfHTZ8iC2D5bdo5LxvA==", "user"=>{"email"=>"praveenitmec@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'praveenitmec@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`reset_password_token` = 'a63da6c7c9fe9967a5f6179efd92968f38399a870e2602a319f09839ac5d57ae' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (53.0ms)[0m  [1m[33mUPDATE `users` SET `reset_password_token` = 'a63da6c7c9fe9967a5f6179efd92968f38399a870e2602a319f09839ac5d57ae', `reset_password_sent_at` = '2017-02-25 06:50:27', `updated_at` = '2017-02-25 06:50:27' WHERE `users`.`id` = 1[0m
+  [1m[35m (66.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/reset_password_instructions.html.erb
+  Rendered devise/mailer/reset_password_instructions.html.erb (1.0ms)
+Devise::Mailer#reset_password_instructions: processed outbound mail in 1154.8ms
+Sent mail to praveenitmec@gmail.com (2157.5ms)
+Date: Sat, 25 Feb 2017 12:20:32 +0530
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: praveenitmec@gmail.com
+Message-ID: <58b12938a1593_19481e678d8557f9@praveen.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello praveenitmec@gmail.com!</p>
+
+<p>Someone has requested a link to change your password. You can do this through the link below.</p>
+
+<p><a href="http://localhost:3000/users/password/edit?reset_password_token=2Wjzv6eXJdQ3TRHd3tG5">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 7554ms (ActiveRecord: 121.1ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-02-25 12:20:35 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 285ms (Views: 284.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password" for ::1 at 2017-02-25 12:22:12 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users/password"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+Started POST "/users/sign_in" for ::1 at 2017-02-25 12:22:14 +0530
+  Rendered collection of C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [24 times] (13.1ms)
+Processing by Devise::SessionsController#create as HTML
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Npf0c3718nbr3Hl1kTjjmsP4f7tojcxz4sHeB2LARdOjOZZM4+FYFmU94buHsc7TZnGipAA0TCS2bac4jvjOVw==", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Npf0c3718nbr3Hl1kTjjmsP4f7tojcxz4sHeB2LARdOjOZZM4+FYFmU94buHsc7TZnGipAA0TCS2bac4jvjOVw==", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1984.9ms)
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (400.6ms)
+Completed 200 OK in 3568ms (Views: 3566.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_insdfs" for ::1 at 2017-02-25 12:22:23 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_insdfs"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered collection of C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [24 times] (9.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1927.3ms)
+Started GET "/users/password/edit" for ::1 at 2017-02-25 12:22:47 +0530
+Processing by Devise::PasswordsController#edit as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :assert_reset_token_passed rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-02-25 12:22:47 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (35.1ms)
+Completed 200 OK in 264ms (Views: 262.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2017-02-25 12:24:52 +0530
+Processing by Devise::RegistrationsController#new as HTML
+Started GET "/users/sign_up" for ::1 at 2017-02-25 12:24:52 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (86.6ms)
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (37.6ms)
+Completed 401 Unauthorized in 259ms (ActiveRecord: 0.0ms)
+
+
+Completed 401 Unauthorized in 448ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2017-02-25 12:25:34 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (647.5ms)
+Completed 200 OK in 1395ms (Views: 1327.6ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/users" for ::1 at 2017-02-25 12:26:12 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gC+PjxMq9R6xtayJt1x3gpmDUqYtKSHtI+EShX0ASdoVge2wjj5ffj9UNEeh1VrLPAqPuUWQobp3TWu6kTjCXg==", "user"=>{"email"=>"rvkpraveen@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (39.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rvkpraveen@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (26.6ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('rvkpraveen@gmail.com', '$2a$11$nEGU.wmwbXcyEZwLSzmVfuWzqHM4zrbT2QKe2aEMqkB4UShYI5nQO', '2017-02-25 06:56:12', '2017-02-25 06:56:12')[0m
+  [1m[35m (131.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (118.8ms)[0m  [1m[33mUPDATE `users` SET `sign_in_count` = 1, `current_sign_in_at` = '2017-02-25 06:56:12', `last_sign_in_at` = '2017-02-25 06:56:12', `current_sign_in_ip` = '::1', `last_sign_in_ip` = '::1' WHERE `users`.`id` = 2[0m
+  [1m[35m (80.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1046ms (ActiveRecord: 397.9ms)
+
+
+Started GET "/" for ::1 at 2017-02-25 12:26:13 +0530
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 11ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/posts" for ::1 at 2017-02-25 12:26:13 +0530
+  
+SyntaxError (C:/Users/praveenkumar/Documents/GitHub/praveen-blog/app/controllers/posts_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  before_action :authenticate_user! except: [:index]
+                                          ^):
+  
+app/controllers/posts_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.5ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1713.7ms)
+Started GET "/posts" for ::1 at 2017-02-25 12:26:29 +0530
+  
+SyntaxError (C:/Users/praveenkumar/Documents/GitHub/praveen-blog/app/controllers/posts_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  before_action :authenticate_user! except: [:index]
+                                          ^):
+  
+app/controllers/posts_controller.rb:2: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.5ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1483.2ms)
+Started GET "/posts" for ::1 at 2017-02-25 12:27:34 +0530
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (2.5ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  Rendered posts/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 289ms (Views: 195.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 12:27:42 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (125.2ms)
+Completed 500 Internal Server Error in 295ms (ActiveRecord: 7.5ms)
+
+
+  
+ActionView::Template::Error (Missing partial posts/_form, application/_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "C:/Users/praveenkumar/Documents/GitHub/praveen-blog/app/views"
+  * "C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/devise-4.2.0/app/views"
+):
+    1: <h1>New Post</h1>
+    2:  
+    3: <%= render 'form' %>
+    4:  
+    5: <%= link_to 'Back', posts_path %>
+  
+app/views/posts/new.html.erb:3:in `_app_views_posts_new_html_erb___1012015359_87107760'
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (15.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (1504.3ms)
+Started GET "/posts/new" for ::1 at 2017-02-25 12:28:14 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (39.1ms)
+  Rendered posts/new.html.erb within layouts/application (66.1ms)
+Completed 200 OK in 279ms (Views: 246.6ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/posts" for ::1 at 2017-02-25 12:29:09 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DF1GiBZnlGUrNVW3H/zZwHV9BUkMy19IO/enf1oVVXOZ8yS3i3M+BaXUzXkJdfSJ0PTYVmRy3x9vW95Ati3e9w==", "post"=>{"title"=>"First Title", "description"=>"First Post Description"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 143ms (ActiveRecord: 1.0ms)
+
+
+  
+NameError (undefined local variable or method `post_params' for #<PostsController:0xa0695c0>
+Did you mean?  posts_params):
+  
+app/controllers/posts_controller.rb:14:in `create'
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1412.2ms)
+Started GET "/posts/new" for ::1 at 2017-02-25 12:30:19 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.0ms)
+  Rendered posts/new.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 310ms (Views: 237.8ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/posts" for ::1 at 2017-02-25 12:30:58 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yBtXxj2yh5LPIlzhlEH+IO/rNjxy1NCsyok4W/CVNd9dtTX5oKYt8kHDxC+CyNNpSmLrIxptUPueJUFkHK2+Ww==", "post"=>{"title"=>"First Title", "description"=>"First Descriptions"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (10.0ms)[0m  [1m[32mINSERT INTO `posts` (`title`, `description`, `user_id`, `created_at`, `updated_at`) VALUES ('First Title', 'First Descriptions', 2, '2017-02-25 07:00:59', '2017-02-25 07:00:59')[0m
+  [1m[35m (53.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 331ms (ActiveRecord: 65.6ms)
+
+
+Started GET "/posts/1" for ::1 at 2017-02-25 12:30:59 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2 AND `posts`.`id` = 1 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 281ms (Views: 173.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts" for ::1 at 2017-02-25 12:31:05 +0530
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered posts/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 214ms (Views: 184.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2017-02-25 12:31:08 +0530
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2 AND `posts`.`id` = 1 LIMIT 1[0m
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (0.0ms)
+  Rendered posts/edit.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 229ms (Views: 194.9ms | ActiveRecord: 3.0ms)
+
+
+Started PATCH "/posts/1" for ::1 at 2017-02-25 12:31:14 +0530
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"b+C2syX1BLidGgF+UWSaDtiuAkU3+QpT/WefvcCMeCOCEoXUBr08glxQ3bS3uX2IEpGxLBDp3ZERMppEfkoKxQ==", "post"=>{"title"=>"First Title", "description"=>"First Descriptions edited"}, "commit"=>"Update Post", "id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2 AND `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (44.0ms)[0m  [1m[33mUPDATE `posts` SET `description` = 'First Descriptions edited', `updated_at` = '2017-02-25 07:01:14' WHERE `posts`.`id` = 1[0m
+  [1m[35m (71.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 159ms (ActiveRecord: 117.7ms)
+
+
+Started GET "/posts/1" for ::1 at 2017-02-25 12:31:14 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2 AND `posts`.`id` = 1 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 222ms (Views: 186.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts" for ::1 at 2017-02-25 12:31:20 +0530
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered posts/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 305ms (Views: 278.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts" for ::1 at 2017-02-25 12:45:00 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  Rendered posts/_posts.html.erb (26.0ms)
+  Rendered posts/index.html.erb within layouts/application (56.0ms)
+Completed 200 OK in 657ms (Views: 595.4ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/posts/1" for ::1 at 2017-02-25 12:45:21 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 223ms (Views: 166.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/my_posts" for ::1 at 2017-02-25 12:45:31 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/my_posts"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered collection of C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [25 times] (9.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (25.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1803.7ms)
+Started GET "/myposts" for ::1 at 2017-02-25 12:45:50 +0530
+  
+AbstractController::ActionNotFound (The action 'my_posts' could not be found for PostsController):
+  
+actionpack (5.0.1) lib/abstract_controller/base.rb:121:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.0ms)
+Started GET "/myposts" for ::1 at 2017-02-25 12:46:16 +0530
+Processing by PostsController#my_posts as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 406 Not Acceptable in 2822ms (ActiveRecord: 5.0ms)
+
+
+  
+ActionController::UnknownFormat (PostsController#my_posts is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.0.1) lib/action_controller/metal/implicit_render.rb:56:in `default_render'
+actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1364.2ms)
+Started GET "/myposts" for ::1 at 2017-02-25 12:47:01 +0530
+Processing by PostsController#my_posts as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/my_posts.html.erb within layouts/application
+  [1m[36mPost Load (29.5ms)[0m  [1m[34mSELECT `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2[0m
+  Rendered posts/_posts.html.erb (62.1ms)
+  Rendered posts/my_posts.html.erb within layouts/application (89.1ms)
+Completed 200 OK in 304ms (Views: 241.7ms | ActiveRecord: 31.0ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2017-02-25 12:47:05 +0530
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2 AND `posts`.`id` = 1 LIMIT 1[0m
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (33.9ms)
+  Rendered posts/edit.html.erb within layouts/application (67.0ms)
+Completed 200 OK in 246ms (Views: 214.7ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/posts/1" for ::1 at 2017-02-25 12:47:12 +0530
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IQH0RkmkMTUfzkw1gIZicprA7L05CymJuCjaDvxDzxTM88chauwJD96EkP9mW4X0UP9f1B4b/ktUfd/3QoW98g==", "post"=>{"title"=>"First Title", "description"=>"First Descriptions edited too"}, "commit"=>"Update Post", "id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2 AND `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (17.1ms)[0m  [1m[33mUPDATE `posts` SET `description` = 'First Descriptions edited too', `updated_at` = '2017-02-25 07:17:12' WHERE `posts`.`id` = 1[0m
+  [1m[35m (86.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 136ms (ActiveRecord: 105.9ms)
+
+
+Started GET "/posts/1" for ::1 at 2017-02-25 12:47:12 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 211ms (Views: 174.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts" for ::1 at 2017-02-25 12:47:24 +0530
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  Rendered posts/_posts.html.erb (5.1ms)
+  Rendered posts/index.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 257ms (Views: 231.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 12:48:05 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.5ms)
+  Rendered posts/new.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 237ms (Views: 204.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/posts" for ::1 at 2017-02-25 12:48:08 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P1YG17Qbx3xSJXzD/XuJ9xLXn4o8dSE9oyFmDECH7LKq+GToKQ9tHNzE5A3r8qS+t15ClVTMoWr3jR8zrL9nNg==", "post"=>{"title"=>"", "description"=>""}, "commit"=>"Create Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (25.0ms)[0m  [1m[32mINSERT INTO `posts` (`title`, `description`, `user_id`, `created_at`, `updated_at`) VALUES ('', '', 2, '2017-02-25 07:18:08', '2017-02-25 07:18:08')[0m
+  [1m[35m (93.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 143ms (ActiveRecord: 120.7ms)
+
+
+Started GET "/posts/2" for ::1 at 2017-02-25 12:48:08 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 2 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 205ms (Views: 170.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/posts" for ::1 at 2017-02-25 12:48:17 +0530
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  Rendered posts/_posts.html.erb (0.0ms)
+  Rendered posts/index.html.erb within layouts/application (31.3ms)
+Completed 200 OK in 282ms (Views: 261.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/my" for ::1 at 2017-02-25 12:48:22 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/my"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered collection of C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [25 times] (10.6ms)
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1908.5ms)
+Started GET "/myposts" for ::1 at 2017-02-25 12:48:27 +0530
+Processing by PostsController#my_posts as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/my_posts.html.erb within layouts/application
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2[0m
+  Rendered posts/_posts.html.erb (8.6ms)
+  Rendered posts/my_posts.html.erb within layouts/application (52.6ms)
+Completed 200 OK in 253ms (Views: 217.6ms | ActiveRecord: 4.0ms)
+
+
+Started DELETE "/posts/2" for ::1 at 2017-02-25 12:48:32 +0530
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QJ1XDSiM7KH3CeNQYKo8yKMBgY39fptXHSXJETCU1RXVMzUytZhGwXnoe552IxGBBohckpXHGwBJibAu3KxekQ==", "id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2 AND `posts`.`id` = 2 LIMIT 1[0m
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 1.5ms)
+
+
+  
+NoMethodError (undefined method `destory' for #<Post:0xa48cd88>
+Did you mean?  destroy):
+  
+app/controllers/posts_controller.rb:47:in `destroy'
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.1ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1505.6ms)
+Started GET "/myposts" for ::1 at 2017-02-25 12:49:11 +0530
+Processing by PostsController#my_posts as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/my_posts.html.erb within layouts/application
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2[0m
+  Rendered posts/_posts.html.erb (24.1ms)
+  Rendered posts/my_posts.html.erb within layouts/application (58.1ms)
+Completed 200 OK in 381ms (Views: 319.4ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/posts/2" for ::1 at 2017-02-25 12:49:14 +0530
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"5p44toHWjPfFlR4Tp6zy5jWyeDq0mahM4J16IiilVJ9zMFqJHMIml0t0ht2xJd+vkDulJdwgKBu0MQMdxJ3fGw==", "id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2 AND `posts`.`id` = 2 LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (57.0ms)[0m  [1m[31mDELETE FROM `posts` WHERE `posts`.`id` = 2[0m
+  [1m[35m (67.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 152ms (ActiveRecord: 127.7ms)
+
+
+Started GET "/posts" for ::1 at 2017-02-25 12:49:14 +0530
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  Rendered posts/_posts.html.erb (4.0ms)
+  Rendered posts/index.html.erb within layouts/application (32.1ms)
+Completed 200 OK in 236ms (Views: 203.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts" for ::1 at 2017-02-25 12:53:07 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  Rendered posts/_posts.html.erb (22.0ms)
+  Rendered posts/index.html.erb within layouts/application (57.1ms)
+Completed 200 OK in 650ms (Views: 589.2ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 12:53:36 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (46.2ms)
+  Rendered posts/new.html.erb within layouts/application (73.1ms)
+Completed 200 OK in 299ms (Views: 242.2ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/posts" for ::1 at 2017-02-25 12:53:39 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nHRGVW+0o2iGoR7NorEkEkb3YfUtn+ExDvV4aIJaFOgJ2iRq8qAJCAhAhgO0OAlb43686kUmYWZaWQFXbmKfbA==", "post"=>{"title"=>"", "description"=>""}, "commit"=>"Create Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mPost Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `posts` WHERE `posts`.`title` = BINARY '' LIMIT 1[0m
+  [1m[35m (10.0ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/posts/new
+Completed 302 Found in 85ms (ActiveRecord: 12.5ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 12:53:39 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (34.1ms)
+  Rendered posts/new.html.erb within layouts/application (62.1ms)
+Completed 200 OK in 277ms (Views: 245.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts" for ::1 at 2017-02-25 12:54:03 +0530
+Processing by PostsController#index as HTML
+Started GET "/posts" for ::1 at 2017-02-25 12:54:03 +0530
+  Rendering posts/index.html.erb within layouts/application
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (4.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  Rendered posts/_posts.html.erb (41.0ms)
+  Rendered posts/index.html.erb within layouts/application (98.8ms)
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (25.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  Rendered posts/_posts.html.erb (30.5ms)
+  Rendered posts/index.html.erb within layouts/application (59.6ms)
+Completed 200 OK in 552ms (Views: 520.0ms | ActiveRecord: 4.0ms)
+
+
+Completed 200 OK in 367ms (Views: 304.9ms | ActiveRecord: 25.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 12:55:58 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (8.0ms)
+  Rendered posts/new.html.erb within layouts/application (48.1ms)
+Completed 200 OK in 352ms (Views: 266.2ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/posts" for ::1 at 2017-02-25 12:56:10 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qb2+/QmAW9Pdpv7VvzXu63MUs1BoqudaOvJif42rOS3UE9zClJTxs1NHZhupvMOi1p1uTwATZw1uXhtAYZOyqQ==", "post"=>{"title"=>"asdas", "description"=>""}, "commit"=>"Create Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mPost Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `posts` WHERE `posts`.`title` = BINARY 'asdas' LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/posts/new
+Completed 302 Found in 39ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 12:56:10 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.5ms)
+  Rendered posts/new.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 242ms (Views: 211.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/posts" for ::1 at 2017-02-25 12:56:50 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"N87v+YBxf9QPlWE2xk/kyMOp0hahUTxmYkyi13DtYzeiYI3GHWXVtIF0+fjQxsmBZiAPCcnovDE24NvonNXosw==", "post"=>{"title"=>"", "description"=>""}, "commit"=>"Create Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mPost Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM `posts` WHERE `posts`.`title` = BINARY '' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/posts/new
+Completed 302 Found in 69ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 12:56:50 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.0ms)
+  Rendered posts/new.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 332ms (Views: 286.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/posts" for ::1 at 2017-02-25 12:57:12 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3hVxJI/e8gFDRRiUWZdpqilVGficMVhmOt7FzWc9xflLuxMbEspYYc2kgFpPHkTjjNzE5/SI2DFucrzyiwVOfQ==", "post"=>{"title"=>"", "description"=>""}, "commit"=>"Create Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mPost Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `posts` WHERE `posts`.`title` = BINARY '' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/posts/new
+Completed 302 Found in 161ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 12:57:25 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (35.0ms)
+  Rendered posts/new.html.erb within layouts/application (65.1ms)
+Completed 200 OK in 674ms (Views: 643.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/posts" for ::1 at 2017-02-25 13:00:26 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hC8CQdatyHSQ8A7PWnPEU/8WQ1I6CIJQ8nI3vNKkLw4RgWB+S7liFB4RlgFM+ukaWp+eTVKxAgem3k6DPpykig==", "post"=>{"title"=>"", "description"=>""}, "commit"=>"Create Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mPost Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM `posts` WHERE `posts`.`title` = BINARY '' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/posts/new
+Completed 302 Found in 67ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 13:00:27 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.0ms)
+  Rendered posts/new.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 235ms (Views: 203.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 13:02:14 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.0ms)
+  Rendered posts/new.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 264ms (Views: 230.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/posts" for ::1 at 2017-02-25 13:02:19 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vQhiAh+YRIp9REnmtT0TYZLVKl6QBLumZaJbGeAgr7IopgA9gozu6vOl0SijtD4oN1z3Qfi9O/ExDiImDBgkNg==", "post"=>{"title"=>"", "description"=>""}, "commit"=>"Create Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mPost Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM `posts` WHERE `posts`.`title` = BINARY '' LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/posts/new
+Completed 302 Found in 29ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 13:02:19 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.0ms)
+  Rendered posts/new.html.erb within layouts/application (29.1ms)
+Completed 200 OK in 228ms (Views: 197.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 13:03:17 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.0ms)
+  Rendered posts/new.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 283ms (Views: 210.3ms | ActiveRecord: 5.6ms)
+
+
+Started POST "/posts" for ::1 at 2017-02-25 13:03:20 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qINhAzUoARV5AZJ01vYlF1CaBXZbFvHZcZmeVuRRzcQ9LQM8qDyrdffgCrrAfwhe9RPYaTOvcY4lNedpCGlGQA==", "post"=>{"title"=>"", "description"=>""}, "commit"=>"Create Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mPost Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM `posts` WHERE `posts`.`title` = BINARY '' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `fullmessages' for #<ActiveModel::Errors:0x9e501a0>
+Did you mean?  full_messages
+               full_message):
+  
+app/controllers/posts_controller.rb:28:in `create'
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.5ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1362.9ms)
+Started GET "/posts" for ::1 at 2017-02-25 13:09:32 +0530
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  Rendered posts/_posts.html.erb (16.5ms)
+  Rendered posts/index.html.erb within layouts/application (43.0ms)
+Completed 500 Internal Server Error in 174ms (ActiveRecord: 4.1ms)
+
+
+  
+SyntaxError (C:/Users/praveenkumar/Documents/GitHub/praveen-blog/app/views/layouts/application.html.erb:25: syntax error, unexpected '<'
+...  '.freeze; value.each {|msg| <li><%= msg ;@output_buffer.sa...
+...                               ^
+C:/Users/praveenkumar/Documents/GitHub/praveen-blog/app/views/layouts/application.html.erb:26: syntax error, unexpected keyword_else, expecting '}'
+C:/Users/praveenkumar/Documents/GitHub/praveen-blog/app/views/layouts/application.html.erb:30: syntax error, unexpected keyword_end, expecting '}'
+'.freeze;     end 
+                 ^
+C:/Users/praveenkumar/Documents/GitHub/praveen-blog/app/views/layouts/application.html.erb:35: syntax error, unexpected keyword_ensure, expecting '}'
+C:/Users/praveenkumar/Documents/GitHub/praveen-blog/app/views/layouts/application.html.erb:37: syntax error, unexpected keyword_end, expecting '}'):
+  
+app/views/layouts/application.html.erb:25: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:26: syntax error, unexpected keyword_else, expecting '}'
+app/views/layouts/application.html.erb:30: syntax error, unexpected keyword_end, expecting '}'
+app/views/layouts/application.html.erb:35: syntax error, unexpected keyword_ensure, expecting '}'
+app/views/layouts/application.html.erb:37: syntax error, unexpected keyword_end, expecting '}'
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.6ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendering C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1389.0ms)
+Started GET "/posts" for ::1 at 2017-02-25 13:10:37 +0530
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  Rendered posts/_posts.html.erb (6.0ms)
+  Rendered posts/index.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 237ms (Views: 211.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 13:10:44 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.0ms)
+  Rendered posts/new.html.erb within layouts/application (31.5ms)
+Completed 200 OK in 301ms (Views: 243.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 13:10:45 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.0ms)
+  Rendered posts/new.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 241ms (Views: 211.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2017-02-25 13:10:47 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pLs1WO591u8qrconbnGcvyQVkkWNWCnw5A2YoBueOO8xFVdnc2l8j6RMUul4+LH2gZxPWuXhqaewoeGf96azaw==", "post"=>{"title"=>"", "description"=>""}, "commit"=>"Create Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mPost Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `posts` WHERE `posts`.`title` = BINARY '' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/posts/new
+Completed 302 Found in 34ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 13:10:47 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.0ms)
+  Rendered posts/new.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 227ms (Views: 198.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 13:12:52 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.0ms)
+  Rendered posts/new.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 271ms (Views: 239.7ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/posts" for ::1 at 2017-02-25 13:12:54 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cIU3sOL1krFuimve1buTvjBLKzSTiW3/54GTx8oCnyflK1WPf+E40eBr8xDDMr73lcL2K/sw7aizLer4JjoUow==", "post"=>{"title"=>"", "description"=>""}, "commit"=>"Create Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mPost Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM `posts` WHERE `posts`.`title` = BINARY '' LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/posts/new
+Completed 302 Found in 26ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 13:12:55 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.0ms)
+  Rendered posts/new.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 247ms (Views: 216.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 13:13:49 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.0ms)
+  Rendered posts/new.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 233ms (Views: 201.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/posts" for ::1 at 2017-02-25 13:13:52 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"soWWhHdYTJBdk4TWuazK2pqXfZHNQEQ2JLMgqZiO98MnK/S76kzm8NNyHBivJeeTPx6gjqX5xGFwH1mWdLZ8Rw==", "post"=>{"title"=>"", "description"=>""}, "commit"=>"Create Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mPost Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `posts` WHERE `posts`.`title` = BINARY '' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/posts/new
+Completed 302 Found in 30ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 13:13:52 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.0ms)
+  Rendered posts/new.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 239ms (Views: 208.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 13:15:26 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.0ms)
+  Rendered posts/new.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 280ms (Views: 211.4ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/posts" for ::1 at 2017-02-25 13:16:04 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M218tguMrKif64kpONRRI6HZQ5ZSBCaW1A9wp6Gx41Wmwx6JlpgGyBEKEecuXXxqBFCeiTq9psGAowmYTYlo0Q==", "post"=>{"title"=>"New 2", "description"=>"New 2 Description"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mPost Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `posts` WHERE `posts`.`title` = BINARY 'New 2' LIMIT 1[0m
+  [1m[35mSQL (34.0ms)[0m  [1m[32mINSERT INTO `posts` (`title`, `description`, `user_id`, `created_at`, `updated_at`) VALUES ('New 2', 'New 2 Description', 2, '2017-02-25 07:46:04', '2017-02-25 07:46:04')[0m
+  [1m[35m (79.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 156ms (ActiveRecord: 116.2ms)
+
+
+Started GET "/posts/3" for ::1 at 2017-02-25 13:16:05 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 3 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 214ms (Views: 178.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/posts" for ::1 at 2017-02-25 13:16:10 +0530
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  Rendered posts/_posts.html.erb (6.0ms)
+  Rendered posts/index.html.erb within layouts/application (32.1ms)
+Completed 200 OK in 281ms (Views: 253.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 13:16:54 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.0ms)
+  Rendered posts/new.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 274ms (Views: 238.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 13:16:55 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.0ms)
+  Rendered posts/new.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 298ms (Views: 256.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/posts" for ::1 at 2017-02-25 13:17:05 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vYMZI6iVfMv5FiH/7v3SvRsZ5F0OHLU3lUMEmzZy18IoLXscNYHWq3f3uTH4dP/0vpA5QmalNWDB732k2kpcRg==", "post"=>{"title"=>"post 3`", "description"=>"desc 3"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mPost Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `posts` WHERE `posts`.`title` = BINARY 'post 3`' LIMIT 1[0m
+  [1m[35mSQL (7.0ms)[0m  [1m[32mINSERT INTO `posts` (`title`, `description`, `user_id`, `created_at`, `updated_at`) VALUES ('post 3`', 'desc 3', 2, '2017-02-25 07:47:05', '2017-02-25 07:47:05')[0m
+  [1m[35m (58.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 98ms (ActiveRecord: 67.2ms)
+
+
+Started GET "/posts/4" for ::1 at 2017-02-25 13:17:05 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 4 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 204ms (Views: 169.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts" for ::1 at 2017-02-25 13:17:29 +0530
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  Rendered posts/_posts.html.erb (5.0ms)
+  Rendered posts/index.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 261ms (Views: 232.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-25 13:17:31 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.0ms)
+  Rendered posts/new.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 247ms (Views: 216.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2017-02-25 13:17:43 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u75tv0l/Emh5gkznXux7dwMDnbYT87hlMLUJ55C09FQuEA+A1Gu4CPdj1ClIZVY+popAqXtKODJkGXDYfIx/0A==", "post"=>{"title"=>"post 4", "description"=>"desc 4"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mPost Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `posts` WHERE `posts`.`title` = BINARY 'post 4' LIMIT 1[0m
+  [1m[35mSQL (9.5ms)[0m  [1m[32mINSERT INTO `posts` (`title`, `description`, `user_id`, `created_at`, `updated_at`) VALUES ('post 4', 'desc 4', 2, '2017-02-25 07:47:43', '2017-02-25 07:47:43')[0m
+  [1m[35m (140.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 185ms (ActiveRecord: 153.3ms)
+
+
+Started GET "/posts/5" for ::1 at 2017-02-25 13:17:43 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 5 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 217ms (Views: 170.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts" for ::1 at 2017-02-25 13:17:51 +0530
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  Rendered posts/_posts.html.erb (5.0ms)
+  Rendered posts/index.html.erb within layouts/application (36.0ms)
+Started GET "/posts" for ::1 at 2017-02-25 13:17:51 +0530
+Completed 200 OK in 336ms (Views: 302.8ms | ActiveRecord: 1.0ms)
+
+
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  Rendered posts/_posts.html.erb (8.0ms)
+  Rendered posts/index.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 226ms (Views: 199.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts/5" for ::1 at 2017-02-25 13:17:54 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 5 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 201ms (Views: 166.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/myposts" for ::1 at 2017-02-25 13:18:01 +0530
+Processing by PostsController#my_posts as HTML
+  [1m[36mUser Load (27.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/my_posts.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2[0m
+  Rendered posts/_posts.html.erb (9.0ms)
+  Rendered posts/my_posts.html.erb within layouts/application (34.6ms)
+Completed 200 OK in 287ms (Views: 201.6ms | ActiveRecord: 28.2ms)
+
+
+Started DELETE "/posts/4" for ::1 at 2017-02-25 13:18:07 +0530
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"3kSTQHd4Wwy3pHEaZzHzV7xdt1pRK/qJth55MfvadvJL6vF/6mzxbDlF6dRxuN4eGdRqRTmSet7isgAOF+L9dg==", "id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2 AND `posts`.`id` = 4 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (8.0ms)[0m  [1m[31mDELETE FROM `posts` WHERE `posts`.`id` = 4[0m
+  [1m[35m (68.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 97ms (ActiveRecord: 77.6ms)
+
+
+Started GET "/posts" for ::1 at 2017-02-25 13:18:07 +0530
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  Rendered posts/_posts.html.erb (5.0ms)
+  Rendered posts/index.html.erb within layouts/application (32.2ms)
+Completed 200 OK in 254ms (Views: 225.9ms | ActiveRecord: 1.0ms)
+
+

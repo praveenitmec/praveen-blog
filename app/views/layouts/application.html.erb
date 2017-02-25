@@ -9,8 +9,27 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <style type="">
+      .alert-notice{
+        background-color: green;
+        opacity: 0.5;
+      }
+      .alert-alert{
+        background-color: red;
+        opacity: 0.5;
+      }
+    </style>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+        <% if value.is_a?(Array) %>
+          <% value.each do |msg| %>
+           <li><%= msg %></li>
+           <% end %>
+        <%else%>
+           <%= value %>
+        <%end%>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
