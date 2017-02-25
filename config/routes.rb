@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root 'homes#index'
   resources :posts
   get '/myposts', to: 'posts#my_posts'
+  post '/create_comment', to: 'comments#create'
+  delete '/delete_comment', to: 'comments#destroy'
 end

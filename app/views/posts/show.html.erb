@@ -7,3 +7,74 @@
   <strong>description:</strong>
   <%= @post.description %>
 </p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+
+<div class = 'comments'>
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+  <div class = "comment-body">
+  	<p>
+    	<strong><%= comment.user.email %>:  </strong>    
+    	<%= comment.body %> 
+    	<% if comment.user == current_user %> 
+  		  <input type="button"  value = "delete" id = "js-delete-comment" data-comment-id = <%=comment.id%>>
+  	    <%end%>
+  	</p>
+  </div>
+<% end %>
+ 
+</div>
+<h2>Add a comment:</h2>
+   <textarea id="comment_body"></textarea>
+   <input type="button" name = "Comment" value="Comment" id = "js-submit-comment" data-post-id = <%= @post.id%>>
+
+
+<script>
+ $(document).ready(function(){
+ 	$('body').on('click', '#js-delete-comment' ,function(event){
+ 		var $comment_div = $(this).parent();
+ 		$.ajax({
+           type: "DELETE",
+           url: "/delete_comment",
+           dataType: "json", 
+           success: function (response) {
+               if (response.status === "OK") {
+                   $comment_div.remove();
+               } else {
+                   alert("not able to delete");
+               }
+           },
+
+           data: {'id': $(this).data('comment-id')}
+       });
+ 	});
+
+ 	$('#js-submit-comment').click(function(event){
+ 		var body = $("#comment_body").val();
+ 		if(body === undefined){
+ 			alert(" Comment body in empty")
+ 			return;
+ 		}
+ 		var comment = {'comment':{'body': body, 'post_id': $(this).data('post-id')}}
+ 		$.ajax({
+           type: "POST",
+           url: "/create_comment",
+           dataType: "json", 
+           success: function (response) {
+               if (response.status === "OK") {
+                   $('.comments').append('<div class = "comment-body"><p><strong>' +response.data.user+
+                   	                  	'</strong>:  '+response.data.comment+ '<input type="button"  value = "delete" id = "js-delete-comment" data-comment-id ='+response.data.id+'></p></div>');
+                   $("#comment_body").val("");
+               } else {
+                   alert(response.errors);
+               }
+           },
+
+           data: comment
+       });
+ 	})
+ })
+</script>
+ 
