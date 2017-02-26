@@ -1,38 +1,75 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>PraveenBlog</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
   </head>
 
   <body>
-    <% if current_user %>
-      <%=link_to "Logout", destroy_user_session_path %>
-    <%end%>
-    <style type="">
-      .alert-notice{
-        background-color: green;
-        opacity: 0.5;
-      }
-      .alert-alert{
-        background-color: red;
-        opacity: 0.5;
-      }
-    </style>
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>">
-        <% if value.is_a?(Array) %>
-          <% value.each do |msg| %>
-           <li><%= msg %></li>
-           <% end %>
-        <%else%>
-           <%= value %>
-        <%end%>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+          <a class="navbar-brand" href="/">Praveen Blog</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"">
+          <ul class="nav navbar-nav">
+            <li><a href="/posts">Home</a></li>
+            <li><a href="/posts/new">New Post</a></li>
+            <% if current_user %>
+              <li><a href="/myposts">Services</a></li>
+            <%end%>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <% if current_user %>
+                <li>          
+                    <%=link_to "Logout",destroy_user_session_path, class: "btn btn-default btn-outline btn-circle collapsed"%>
+                </li>
+              <%else%>
+                 <li><a href="/" class= "btn btn-default btn-outline btn-circle collapsed">Login</a></li>
+              <%end%>
+          </ul>
+        </div>
       </div>
-    <% end %>
-    <%= yield %>
+    </nav>
+    
+    <div id="main-container" class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>">
+              <% if value.is_a?(Array) %>
+                <% value.each do |msg| %>
+                 <li><%= msg %></li>
+                 <% end %>
+              <%else%>
+                 <%= value %>
+              <%end%>
+             </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class = 'jumbotron' style='text-align:center'>
+          <h3>Praveen Blog</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-9">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    
   </body>
 </html>
