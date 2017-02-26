@@ -1,40 +1,58 @@
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
- 
-<p>
-  <strong>description:</strong>
-  <%= @post.description %>
-</p>
+<div class = 'container'>
+  <div class= 'row post-page'>
+    <div class= 'col-lg-8'>
+      <h1> <%= @post.title %> </h1>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+      <p style='font-size: 14px;'><span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM</p>
 
-<div class = 'comments'>
-<h2>Comments</h2>
-<% @post.comments.each do |comment| %>
-  <div class = "comment-body">
-  	<p>
-    	<strong><%= comment.user.email %>:  </strong>    
-    	<%= comment.body %> 
-    	<% if comment.user == current_user %> 
-  		  <input type="button"  value = "delete" id = "js-delete-comment" data-comment-id = <%=comment.id%>>
-  	    <%end%>
-  	</p>
+      <p>
+        <%= @post.description %>
+      </p>
+
+
+    <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default btn-primary" %> 
+    <%= link_to 'Back', posts_path, class: "btn btn-default btn-primary" %>
+    </br>
+    </br>
+
+    <div class="well">
+      <h4>Leave a Comment:</h4>
+        <form>
+          <div class="form-group">
+            <textarea id="comment_body" class= 'form-control'></textarea>
+          </div>
+            <input type="button" class= "btn btn-default btn-primary" name = "Comment" value="Comment" id = "js-submit-comment" data-post-id = <%= @post.id%>>
+        </form>
+    </div>
+    <div class = 'comments'>
+      <% @post.comments.each do |comment| %>
+        <div class="media">
+          <a class="pull-left" href="#">
+            <img class="media-object" src="http://placehold.it/64x64" alt="">
+          </a>
+        	<div class="media-body">
+            <h4 class="media-heading"><%= comment.user.email %>: 
+                <small><%= comment.created_at%></small>
+            </h4>   
+          	<%= comment.body %>
+          	<% if comment.user == current_user %> 
+        		  <input type="button" class= "btn btn-default btn-primary"  value = "delete" id = "js-delete-comment" data-comment-id = <%=comment.id%>>
+        	    <%end%>
+        	</div>
+        </div>
+      <% end %>
+    </div>
+
+
+    </div>
   </div>
-<% end %>
- 
 </div>
-<h2>Add a comment:</h2>
-   <textarea id="comment_body"></textarea>
-   <input type="button" name = "Comment" value="Comment" id = "js-submit-comment" data-post-id = <%= @post.id%>>
 
 
 <script>
  $(document).ready(function(){
  	$('body').on('click', '#js-delete-comment' ,function(event){
- 		var $comment_div = $(this).parent();
+ 		var $comment_div = $(this).parent().parent();
  		$.ajax({
            type: "DELETE",
            url: "/delete_comment",
@@ -64,8 +82,19 @@
            dataType: "json", 
            success: function (response) {
                if (response.status === "OK") {
-                   $('.comments').append('<div class = "comment-body"><p><strong>' +response.data.user+
-                   	                  	'</strong>:  '+response.data.comment+ '<input type="button"  value = "delete" id = "js-delete-comment" data-comment-id ='+response.data.id+'></p></div>');
+                   var comment = response.data.comment;
+                   $('.comments').append('<div class="media">'+
+                                            '<a class="pull-left" href="#">'+
+                                              '<img class="media-object" src="http://placehold.it/64x64" alt="">'+
+                                            '</a>'+
+                                            '<div class="media-body">'+
+                                            '<h4 class="media-heading">'+response.data.user+ 
+                                              '<small>'+comment.created_at+'</small>'+
+                                            '</h4>'+  
+                                              comment.body +
+                                            '<input type="button" class= "btn btn-default btn-primary"  value = "delete" id = "js-delete-comment" data-comment-id =' 
+                                            +comment.id+ '></div>'+
+                                        '</div>');
                    $("#comment_body").val("");
                } else {
                    alert(response.errors);

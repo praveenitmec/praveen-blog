@@ -6,8 +6,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id if current_user
     if @comment.save
     	render json:{status:"OK", data: {'user': current_user.email,
-                                       'comment': @comment.body,
-                                       'id': @comment.id}}
+                                       'comment': @comment}}
     else
     	render json:{status:"FAILS", errors:@comment.errors.full_messages}
     end 
