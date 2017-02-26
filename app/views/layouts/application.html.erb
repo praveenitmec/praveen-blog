@@ -24,10 +24,10 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"">
           <ul class="nav navbar-nav">
-            <li><a href="/posts">Home</a></li>
+            <li><a href="/posts">All Posts</a></li>
             <li><a href="/posts/new">New Post</a></li>
             <% if current_user %>
-              <li><a href="/myposts">Services</a></li>
+              <li><a href="/myposts">My Posts</a></li>
             <%end%>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -60,14 +60,9 @@
         </div>
       </div>
       <div class="row">
-        <div class = 'jumbotron' style='text-align:center'>
-          <h3>Praveen Blog</h3>
-        </div>
       </div>
       <div class="row">
-        <div class="col-xs-9">
           <%= yield %>
-        </div>
       </div>
     </div>
     

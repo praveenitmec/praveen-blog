@@ -15,6 +15,17 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "fonts";
+ $my_yolo_font: 'Sansita-Regular'; 
+
+ body{
+   font-family: $my_yolo_font;
+ }
+
+
+ a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+}
 
  .navbar-nav.navbar-right .btn {
     position: relative;
