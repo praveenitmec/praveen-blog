@@ -7006,3 +7006,427 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 1169ms (Views: 1160.6ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/users/sign_out" for ::1 at 2017-02-27 21:48:51 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Devise::SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 108ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-02-27 21:49:15 +0530
+Processing by HomesController#index as HTML
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-02-27 21:49:16 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (159.2ms)
+Completed 200 OK in 2056ms (Views: 2013.8ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-02-27 21:50:47 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (60.2ms)
+Completed 200 OK in 765ms (Views: 761.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-02-27 21:51:05 +0530
+Processing by HomesController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-02-27 21:51:05 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (56.1ms)
+Completed 200 OK in 810ms (Views: 806.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-02-27 22:01:32 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WQxAr20Tkk4tomP6rjqpkTzAdQFvZmhi2/ffX1L7NPb6P59J0ACEyGVM9pU7FnB+bVDZQCqXkU5x81OUbHV/Yw==", "user"=>{"email"=>"rvkpraveen@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'rvkpraveen@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2017-02-27 16:31:33', `last_sign_in_at` = '2017-02-26 17:20:57', `sign_in_count` = 9, `updated_at` = '2017-02-27 16:31:33' WHERE `users`.`id` = 2[0m
+  [1m[35m (144.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 988ms (ActiveRecord: 150.7ms)
+
+
+Started GET "/" for ::1 at 2017-02-27 22:01:33 +0530
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 12ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/posts" for ::1 at 2017-02-27 22:01:34 +0530
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered posts/_posts.html.erb (104.2ms)
+  Rendered posts/index.html.erb within layouts/application (149.2ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 857ms (Views: 763.9ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/posts/8" for ::1 at 2017-02-27 22:01:48 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 8 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mTag Load (3.1ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `posts_tags` ON `tags`.`id` = `posts_tags`.`tag_id` WHERE `posts_tags`.`post_id` = 8[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mComment Load (1.5ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 8[0m
+  Rendered posts/show.html.erb within layouts/application (149.7ms)
+Completed 200 OK in 888ms (Views: 814.4ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/posts" for ::1 at 2017-02-27 22:04:54 +0530
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered posts/_posts.html.erb (41.0ms)
+  Rendered posts/index.html.erb within layouts/application (89.2ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 728ms (Views: 676.5ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/posts/1" for ::1 at 2017-02-27 22:06:38 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `posts_tags` ON `tags`.`id` = `posts_tags`.`tag_id` WHERE `posts_tags`.`post_id` = 1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (89.1ms)
+Completed 200 OK in 788ms (Views: 729.4ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/posts-by-tags/Test" for ::1 at 2017-02-27 22:06:42 +0530
+Processing by PostsController#tag_posts as HTML
+  Parameters: {"tag"=>"Test"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`name` = 'Test' LIMIT 1[0m
+  Rendering posts/tag_posts.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts` INNER JOIN `posts_tags` ON `posts`.`id` = `posts_tags`.`post_id` WHERE `posts_tags`.`tag_id` = 1[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered posts/_posts.html.erb (23.0ms)
+  Rendered posts/tag_posts.html.erb within layouts/application (66.1ms)
+Completed 200 OK in 806ms (Views: 729.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2017-02-27 22:07:08 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `posts_tags` ON `tags`.`id` = `posts_tags`.`tag_id` WHERE `posts_tags`.`post_id` = 1[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (49.0ms)
+Completed 200 OK in 1008ms (Views: 893.9ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2017-02-27 22:07:27 +0530
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2 AND `posts`.`id` = 1 LIMIT 1[0m
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (18.6ms)
+  Rendered posts/edit.html.erb within layouts/application (61.0ms)
+Completed 200 OK in 752ms (Views: 679.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2017-02-27 22:07:31 +0530
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 15ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/posts" for ::1 at 2017-02-27 22:07:31 +0530
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered posts/_posts.html.erb (38.0ms)
+  Rendered posts/index.html.erb within layouts/application (79.1ms)
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 666ms (Views: 623.3ms | ActiveRecord: 3.0ms)
+
+
+Started PATCH "/posts/1" for ::1 at 2017-02-27 22:10:11 +0530
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1AelUcUv/mvVRITPqHKdq7JOGMnH6G2hPmd7R586BNK9SlxOsTU4X5QJrKqrQzFeghWXWY087N24evRQRDMO7w==", "post"=>{"title"=>"First Title", "description"=>"Henry Hoʻolulu Pitman (1845–1863) was one of more than one hundred Native Hawaiians and Hawaiian-born combatants who fought in the American Civil War while Hawaii was still an independent kingdom. His father was a merchant from Massachusetts and his mother, Kinoʻoleoliliha, was a Hawaiian noble. He returned to the United States with his father for his education, but ran away from school without his family's knowledge and enlisted in the Union Army as a private. Despite his mixed-race ancestry, he avoided the racial segregation imposed on other Hawaiian recruits of the time and was assigned to a white regiment. He fought in the Battle of Antietam and the Maryland Campaign and befriended Robert G. Carter, a memoirist of the Civil War. On the march to Fredericksburg, he was separated from his regiment and captured by Confederate guerrilla forces. He was marched to Richmond and incarcerated in Libby Prison, where he contracted a lung disease from the harsh conditions. He died on February 27, 1863, after his release on parole in a prisoner exchange. His legacy has sparked renewed interest in the role \r\n\r\nHenry Hoʻolulu Pitman (1845–1863) was one of more than one hundred Native Hawaiians and Hawaiian-born combatants who fought in the American Civil War while Hawaii was still an independent kingdom. His father was a merchant from Massachusetts and his mother, Kinoʻoleoliliha, was a Hawaiian noble. He returned to the United States with his father for his education, but ran away from school without his family's knowledge and enlisted in the Union Army as a private. Despite his mixed-race ancestry, he avoided the racial segregation imposed on other Hawaiian recruits of the time and was assigned to a white regiment. He fought in the Battle of Antietam and the Maryland Campaign and befriended Robert G. Carter, a memoirist of the Civil War. On the march to Fredericksburg, he was separated from his regiment and captured by Confederate guerrilla forces. He was marched to Richmond and incarcerated in Libby Prison, where he contracted a lung disease from the harsh conditions. He died on February 27, 1863, after his release on parole in a prisoner exchange. His legacy has sparked renewed interest in the role "}, "tags"=>"", "commit"=>"Update Post", "id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2 AND `posts`.`id` = 1 LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Exists (49.0ms)[0m  [1m[34mSELECT  1 AS one FROM `posts` WHERE `posts`.`title` = BINARY 'First Title' AND (`posts`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (29.6ms)[0m  [1m[33mUPDATE `posts` SET `description` = 'Henry Hoʻolulu Pitman (1845–1863) was one of more than one hundred Native Hawaiians and Hawaiian-born combatants who fought in the American Civil War while Hawaii was still an independent kingdom. His father was a merchant from Massachusetts and his mother, Kinoʻoleoliliha, was a Hawaiian noble. He returned to the United States with his father for his education, but ran away from school without his family\'s knowledge and enlisted in the Union Army as a private. Despite his mixed-race ancestry, he avoided the racial segregation imposed on other Hawaiian recruits of the time and was assigned to a white regiment. He fought in the Battle of Antietam and the Maryland Campaign and befriended Robert G. Carter, a memoirist of the Civil War. On the march to Fredericksburg, he was separated from his regiment and captured by Confederate guerrilla forces. He was marched to Richmond and incarcerated in Libby Prison, where he contracted a lung disease from the harsh conditions. He died on February 27, 1863, after his release on parole in a prisoner exchange. His legacy has sparked renewed interest in the role \r\n\r\nHenry Hoʻolulu Pitman (1845–1863) was one of more than one hundred Native Hawaiians and Hawaiian-born combatants who fought in the American Civil War while Hawaii was still an independent kingdom. His father was a merchant from Massachusetts and his mother, Kinoʻoleoliliha, was a Hawaiian noble. He returned to the United States with his father for his education, but ran away from school without his family\'s knowledge and enlisted in the Union Army as a private. Despite his mixed-race ancestry, he avoided the racial segregation imposed on other Hawaiian recruits of the time and was assigned to a white regiment. He fought in the Battle of Antietam and the Maryland Campaign and befriended Robert G. Carter, a memoirist of the Civil War. On the march to Fredericksburg, he was separated from his regiment and captured by Confederate guerrilla forces. He was marched to Richmond and incarcerated in Libby Prison, where he contracted a lung disease from the harsh conditions. He died on February 27, 1863, after his release on parole in a prisoner exchange. His legacy has sparked renewed interest in the role ', `updated_at` = '2017-02-27 16:40:11' WHERE `posts`.`id` = 1[0m
+  [1m[35m (77.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 277ms (ActiveRecord: 159.4ms)
+
+
+Started GET "/posts/1" for ::1 at 2017-02-27 22:10:12 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mTag Load (1.5ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `posts_tags` ON `tags`.`id` = `posts_tags`.`tag_id` WHERE `posts_tags`.`post_id` = 1[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (51.1ms)
+Completed 200 OK in 727ms (Views: 663.5ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/posts/1" for ::1 at 2017-02-27 22:12:09 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `posts_tags` ON `tags`.`id` = `posts_tags`.`tag_id` WHERE `posts_tags`.`post_id` = 1[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (46.0ms)
+Completed 200 OK in 824ms (Views: 764.4ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/myposts" for ::1 at 2017-02-27 22:13:03 +0530
+Processing by PostsController#my_posts as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/my_posts.html.erb within layouts/application
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2[0m
+  Rendered posts/_posts.html.erb (14.0ms)
+  Rendered posts/my_posts.html.erb within layouts/application (58.1ms)
+Completed 200 OK in 857ms (Views: 800.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/posts/8" for ::1 at 2017-02-27 22:13:06 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (0.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 8 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mTag Load (0.0ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `posts_tags` ON `tags`.`id` = `posts_tags`.`tag_id` WHERE `posts_tags`.`post_id` = 8[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 8[0m
+  Rendered posts/show.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 724ms (Views: 663.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/posts" for ::1 at 2017-02-27 22:13:20 +0530
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered posts/_posts.html.erb (38.5ms)
+  Rendered posts/index.html.erb within layouts/application (83.1ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 748ms (Views: 703.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/posts/9" for ::1 at 2017-02-27 22:13:24 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 9 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `posts_tags` ON `tags`.`id` = `posts_tags`.`tag_id` WHERE `posts_tags`.`post_id` = 9[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 9[0m
+  Rendered posts/show.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 738ms (Views: 681.3ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/posts-by-tags/tag2" for ::1 at 2017-02-27 22:13:27 +0530
+Processing by PostsController#tag_posts as HTML
+  Parameters: {"tag"=>"tag2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`name` = 'tag2' LIMIT 1[0m
+  Rendering posts/tag_posts.html.erb within layouts/application
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT `posts`.* FROM `posts` INNER JOIN `posts_tags` ON `posts`.`id` = `posts_tags`.`post_id` WHERE `posts_tags`.`tag_id` = 4[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered posts/_posts.html.erb (19.6ms)
+  Rendered posts/tag_posts.html.erb within layouts/application (63.8ms)
+Completed 200 OK in 759ms (Views: 699.6ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/posts/9" for ::1 at 2017-02-27 22:13:30 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 9 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `posts_tags` ON `tags`.`id` = `posts_tags`.`tag_id` WHERE `posts_tags`.`post_id` = 9[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 9[0m
+  Rendered posts/show.html.erb within layouts/application (33.6ms)
+Completed 200 OK in 763ms (Views: 689.6ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/posts-by-tags/tag1" for ::1 at 2017-02-27 22:13:32 +0530
+Processing by PostsController#tag_posts as HTML
+  Parameters: {"tag"=>"tag1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`name` = 'tag1' LIMIT 1[0m
+  Rendering posts/tag_posts.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts` INNER JOIN `posts_tags` ON `posts`.`id` = `posts_tags`.`post_id` WHERE `posts_tags`.`tag_id` = 3[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered posts/_posts.html.erb (22.1ms)
+  Rendered posts/tag_posts.html.erb within layouts/application (74.1ms)
+Completed 200 OK in 903ms (Views: 806.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/posts/9" for ::1 at 2017-02-27 22:13:35 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 9 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `posts_tags` ON `tags`.`id` = `posts_tags`.`tag_id` WHERE `posts_tags`.`post_id` = 9[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 9[0m
+  Rendered posts/show.html.erb within layouts/application (38.9ms)
+Completed 200 OK in 824ms (Views: 753.7ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-27 22:13:42 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.0ms)
+  Rendered posts/new.html.erb within layouts/application (52.4ms)
+Completed 200 OK in 775ms (Views: 728.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2017-02-27 22:14:07 +0530
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.0ms)
+  Rendered posts/new.html.erb within layouts/application (119.1ms)
+Completed 200 OK in 1179ms (Views: 1118.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/posts" for ::1 at 2017-02-27 22:16:22 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7asvTwGPDIGN+wvnZjXg0xGjlOqDSoDRejSuQDM7CkfMJK9uMUDVXOacuBgkTv1J/mt6HwKi2awMy0HBwTxIgg==", "post"=>{"title"=>"This is first Full fledged post of Mine", "description"=>"India, officially the Republic of India (Bhārat Gaṇarājya),[e] is a country in South Asia. It is the seventh-largest country by area, the second-most populous country (with over 1.2 billion people), and the most populous democracy in the world. It is bounded by the Indian Ocean on the south, the Arabian Sea on the southwest, and the Bay of Bengal on the southeast. It shares land borders with Pakistan to the west;[f] China, Nepal, and Bhutan to the northeast; and Myanmar (Burma) and Bangladesh to the east. In the Indian Ocean, India is in the vicinity of Sri Lanka and the Maldives. India's Andaman and Nicobar Islands share a maritime border with Thailand and Indonesia.\r\n\r\nThe Indian subcontinent was home to the urban Indus Valley Civilisation of the 3rd millennium BCE. In the following millennium, the oldest scriptures associated with Hinduism began to be composed. Social stratification, based on caste, emerged in the first millennium BCE, and Buddhism and Jainism arose. Early political consolidations took place under the Maurya and Gupta empires; the later peninsular Middle Kingdoms influenced cultures as far as southeast Asia. In the medieval era, Judaism, Zoroastrianism, Christianity, and Islam arrived, and Sikhism emerged, all adding to the region's diverse culture. Much of the north fell to the Delhi sultanate; the south was united under the Vijayanagara Empire. The economy expanded in the 17th century in the Mughal empire. In the mid-18th century, the subcontinent came under British East India Company rule, and in the mid-19th under British crown rule. A nationalist movement emerged in the late 19th century, which later, under Mahatma Gandhi, was noted for non-violent resistance and led to India's independence in 1947.\r\n\r\nIn 2015, the Indian economy was the world's seventh largest by nominal GDP and third largest by purchasing power parity.[14] Following market-based economic reforms in 1991, India became one of the fastest-growing major economies and is considered a newly industrialised country. However, it continues to face the challenges of poverty, corruption, malnutrition, and inadequate public healthcare. A nuclear weapons state and regional power, it has the third largest standing army in the world and ranks sixth in military expenditure among nations. India is a federal constitutional republic governed under a parliamentary system and consists of 29 states and 7 union territories. It is a pluralistic, multilingual and multi-ethnic society and is also home to a diversity of wildlife in a variety of protected habitats."}, "tags"=>"History,India", "commit"=>"Create Post"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (15.0ms)[0m  [1m[32mINSERT INTO `tags` (`name`, `created_at`, `updated_at`) VALUES ('History', '2017-02-27 16:46:22', '2017-02-27 16:46:22')[0m
+  [1m[35m (51.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO `tags` (`name`, `created_at`, `updated_at`) VALUES ('India', '2017-02-27 16:46:22', '2017-02-27 16:46:22')[0m
+  [1m[35m (94.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mPost Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM `posts` WHERE `posts`.`title` = BINARY 'This is first Full fledged post of Mine' LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO `posts` (`title`, `description`, `user_id`, `created_at`, `updated_at`) VALUES ('This is first Full fledged post of Mine', 'India, officially the Republic of India (Bhārat Gaṇarājya),[e] is a country in South Asia. It is the seventh-largest country by area, the second-most populous country (with over 1.2 billion people), and the most populous democracy in the world. It is bounded by the Indian Ocean on the south, the Arabian Sea on the southwest, and the Bay of Bengal on the southeast. It shares land borders with Pakistan to the west;[f] China, Nepal, and Bhutan to the northeast; and Myanmar (Burma) and Bangladesh to the east. In the Indian Ocean, India is in the vicinity of Sri Lanka and the Maldives. India\'s Andaman and Nicobar Islands share a maritime border with Thailand and Indonesia.\r\n\r\nThe Indian subcontinent was home to the urban Indus Valley Civilisation of the 3rd millennium BCE. In the following millennium, the oldest scriptures associated with Hinduism began to be composed. Social stratification, based on caste, emerged in the first millennium BCE, and Buddhism and Jainism arose. Early political consolidations took place under the Maurya and Gupta empires; the later peninsular Middle Kingdoms influenced cultures as far as southeast Asia. In the medieval era, Judaism, Zoroastrianism, Christianity, and Islam arrived, and Sikhism emerged, all adding to the region\'s diverse culture. Much of the north fell to the Delhi sultanate; the south was united under the Vijayanagara Empire. The economy expanded in the 17th century in the Mughal empire. In the mid-18th century, the subcontinent came under British East India Company rule, and in the mid-19th under British crown rule. A nationalist movement emerged in the late 19th century, which later, under Mahatma Gandhi, was noted for non-violent resistance and led to India\'s independence in 1947.\r\n\r\nIn 2015, the Indian economy was the world\'s seventh largest by nominal GDP and third largest by purchasing power parity.[14] Following market-based economic reforms in 1991, India became one of the fastest-growing major economies and is considered a newly industrialised country. However, it continues to face the challenges of poverty, corruption, malnutrition, and inadequate public healthcare. A nuclear weapons state and regional power, it has the third largest standing army in the world and ranks sixth in military expenditure among nations. India is a federal constitutional republic governed under a parliamentary system and consists of 29 states and 7 union territories. It is a pluralistic, multilingual and multi-ethnic society and is also home to a diversity of wildlife in a variety of protected habitats.', 2, '2017-02-27 16:46:22', '2017-02-27 16:46:22')[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO `posts_tags` (`post_id`, `tag_id`) VALUES (10, 5)[0m
+  [1m[35mSQL (52.1ms)[0m  [1m[32mINSERT INTO `posts_tags` (`post_id`, `tag_id`) VALUES (10, 6)[0m
+  [1m[35m (46.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/posts/10
+Completed 302 Found in 443ms (ActiveRecord: 268.6ms)
+
+
+Started GET "/posts/10" for ::1 at 2017-02-27 22:16:22 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 10 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `posts_tags` ON `tags`.`id` = `posts_tags`.`tag_id` WHERE `posts_tags`.`post_id` = 10[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 10[0m
+  Rendered posts/show.html.erb within layouts/application (33.1ms)
+Completed 200 OK in 679ms (Views: 619.8ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/posts-by-tags/India" for ::1 at 2017-02-27 22:16:30 +0530
+Processing by PostsController#tag_posts as HTML
+  Parameters: {"tag"=>"India"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT  `tags`.* FROM `tags` WHERE `tags`.`name` = 'India' LIMIT 1[0m
+  Rendering posts/tag_posts.html.erb within layouts/application
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT `posts`.* FROM `posts` INNER JOIN `posts_tags` ON `posts`.`id` = `posts_tags`.`post_id` WHERE `posts_tags`.`tag_id` = 6[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered posts/_posts.html.erb (19.0ms)
+  Rendered posts/tag_posts.html.erb within layouts/application (61.0ms)
+Completed 200 OK in 721ms (Views: 662.2ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/sign_out" for ::1 at 2017-02-27 22:17:03 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 29ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2017-02-27 22:17:03 +0530
+Processing by HomesController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-02-27 22:17:03 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (17.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (95.0ms)
+Completed 200 OK in 873ms (Views: 870.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2017-02-27 22:18:04 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (55.1ms)
+Completed 200 OK in 813ms (Views: 810.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-02-27 22:18:12 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (56.1ms)
+Completed 200 OK in 821ms (Views: 817.7ms | ActiveRecord: 0.0ms)
+
+

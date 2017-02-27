@@ -2,15 +2,13 @@
 <h1>Listing Post</h1>
 </div>
 <% @posts.each do |post| %>
-  <div class = 'row post-body'>
-      <div class = 'row'>
+  <div class = 'post-body'>
         <p>
           <span class= 'post-title'><%= link_to post.title, post_path(post) %> </span> 
             <% if !show_paths %>
               <span style="font-style:italic;font-size: 18px">Created by <%=post.user.email%></span>
             <%end%>
          </p>
-      </div>
       <% if show_paths %>
       	<p style="font-size: 18px">
           <%= link_to 'Edit', edit_post_path(post),  class: "btn btn-default btn-primary" %>    	  
