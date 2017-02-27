@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/myposts', to: 'posts#my_posts'
   post '/create_comment', to: 'comments#create'
   delete '/delete_comment', to: 'comments#destroy'
+  get '/posts-by-tags/:tag', to: 'posts#tag_posts'
 end

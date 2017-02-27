@@ -8,10 +8,16 @@
       <p>
         <%= @post.description %>
       </p>
-
-
-    <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default btn-primary" %> 
-    <%= link_to 'Back', posts_path, class: "btn btn-default btn-primary" %>
+      
+      <p>
+      <% @post.tags.each{|tag|%>
+        <a href='<%="/posts-by-tags/#{tag.name}"%>'  class='tags'><span><%=tag.name %></span></a>
+      <%}%>
+      </p>
+      <% if current_user.id == @post.user.id %>
+        <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default btn-primary" %> 
+        <%= link_to 'Back', posts_path, class: "btn btn-default btn-primary" %>
+      <%end%>
     </br>
     </br>
 

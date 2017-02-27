@@ -8,6 +8,12 @@
     <%= f.label :description %><br>
     <%= f.text_area :description, class: 'form-control' %>
   </div>
+
+  <div class='form-group'>
+    <%= label_tag "Tags(Add Multiple tags seperated by comma)" %><br>
+    <%= text_field_tag(:tags, nil, data:{role: 'tagsinput'}, class: 'form-control')%>
+  </div>
+
  
   <div class='actions'>
     <%= f.submit class: 'btn btn-primary btn-success' %>

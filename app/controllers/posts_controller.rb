@@ -14,13 +14,23 @@ class PostsController < ApplicationController
   	@posts = current_user.posts
   end
 
+  def tag_posts
+    @posts = []
+    if params[:tag]
+      tag = Tag.find_by name: params[:tag]
+      @posts = tag.posts
+    end
+  end
+
   def new
     @post = Post.new
   end
  
   def create
     @post = Post.new(post_params)
+    tags = create_tags
     @post.user_id = current_user.id if current_user
+    tags.each{|tag| @post.tags.push(tag)}
     if @post.save
       flash[:success] = "Post Created Successfully"
       redirect_to @post
@@ -65,5 +75,21 @@ class PostsController < ApplicationController
 
     def post_params
    	  params.require(:post).permit(:title, :description)
+    end
+
+    def create_tags
+      tags = []
+      if params[:tags]
+        params[:tags].split(",").each do |name|
+          begin
+            tag = Tag.new({name: name})
+            tag.save
+            tags.push(tag)
+          rescue
+            continue
+          end
+        end
+      end
+      tags
     end
 end
