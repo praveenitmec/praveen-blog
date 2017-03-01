@@ -7430,3 +7430,81 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 821ms (Views: 817.7ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2017-03-01 20:09:29 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (120.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by HomesController#index as HTML
+Completed 401 Unauthorized in 141ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-01 20:09:55 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (1014.9ms)
+Completed 200 OK in 11286ms (Views: 10856.5ms | ActiveRecord: 303.3ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-03-01 20:10:26 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AWv0OxezcDpCm57RCd0iLe3sxOWWU3aWutzPsMyAONNxtBEmD9N4BBNdFHtxVSx8JN0ZQqJ/IXk30GrkP6PW8w==", "user"=>{"email"=>"abc@abc.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (92.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'abc@abc.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (24.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (347.3ms)[0m  [1m[33mUPDATE `users` SET `current_sign_in_at` = '2017-03-01 14:40:27', `last_sign_in_at` = '2017-02-27 14:56:58', `sign_in_count` = 6, `updated_at` = '2017-03-01 14:40:27' WHERE `users`.`id` = 3[0m
+  [1m[35m (728.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 2424ms (ActiveRecord: 1192.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-01 20:10:28 +0530
+Processing by HomesController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 18ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/posts" for ::1 at 2017-03-01 20:10:28 +0530
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (19.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered posts/_posts.html.erb (266.2ms)
+  Rendered posts/index.html.erb within layouts/application (374.4ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 1224ms (Views: 930.5ms | ActiveRecord: 37.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2017-03-01 20:11:15 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mTag Load (37.0ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `posts_tags` ON `tags`.`id` = `posts_tags`.`tag_id` WHERE `posts_tags`.`post_id` = 1[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mComment Load (13.1ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (535.9ms)
+Completed 200 OK in 1326ms (Views: 1094.6ms | ActiveRecord: 84.1ms)
+
+
+Started GET "/posts/1" for ::1 at 2017-03-01 20:28:49 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  `posts`.* FROM `posts` WHERE `posts`.`id` = 1 LIMIT 1[0m
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mTag Load (3.0ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `posts_tags` ON `tags`.`id` = `posts_tags`.`tag_id` WHERE `posts_tags`.`post_id` = 1[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`post_id` = 1[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered posts/show.html.erb within layouts/application (239.3ms)
+Completed 200 OK in 1998ms (Views: 1795.5ms | ActiveRecord: 20.9ms)
+
+

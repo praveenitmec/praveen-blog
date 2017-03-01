@@ -2,8 +2,9 @@
   <div class= 'row post-page'>
     <div class= 'col-lg-8'>
       <h1> <%= @post.title %> </h1>
-
-      <p style='font-size: 14px;'><span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM</p>
+      <% t = @post.created_at %>
+      <p style='font-size: 14px;'><span class="glyphicon glyphicon-time"></span> Posted on 
+       <%= t.strftime("%B %C, %G at  %I%p")%> </p>
 
       <p>
         <%= @post.description %>
@@ -38,7 +39,7 @@
           </a>
         	<div class="media-body">
             <h4 class="media-heading"><%= comment.user.email %>: 
-                <small><%= comment.created_at%></small>
+                <small><%= comment.created_at.strftime("%B %C, %G at  %I%p")%></small>
             </h4>   
           	<%= comment.body %>
           	<% if comment.user == current_user %> 
