@@ -2,33 +2,70 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.post-body{
-  font-size:32px;
-  padding-left: 20%;
-  margin-bottom: 10px;
-
-  .post-title {
-    font-weight: bold;
+.all-posts{
+  .post{
+    padding: 10px;
+    background: linear-gradient( 180deg, rgba(0, 255, 29, 0.73), rgba(0, 255, 115, 0.21) );
+    .post-title {
+       font-size:32px;
+       font-weight:bold;
+       text-align:center;
+    }
+    .post-author {
+      text-align: center;
+    }
+    .post-desc {
+       margin:auto;
+       word-wrap: break-word;
+    }
+    .post-info {
+      &:after{
+       content: " "; 
+       display: block;
+       clear: both;
+       }
+       .post-create {
+         float: left;
+         color: #999999;
+       }
+       .post-url {
+         float: right;
+         a{
+            color: #1abc9c;
+         }  
+         a:hover{
+           color: #000000;
+         }    
+       }
+    }
   }
 
-  .row p {
-    margin: 0 0 0px;
-  }
 }
 
-.post-page {
-	.post-title {
-	   font-size:32px;
-	   font-weight:bold;
-	}
 
+.post-page {
 	.post-description {
 	   font-size: 18px;
 	}
 
-  .tags{
-    padding: 10px;
-    background-color: lightcyan;
+  .tags {
+    font-size: 20px;
+    line-height: 14px;
+    padding: 4px 8px 4px 8px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
     border-radius: 10px;
+    margin: 0 5px 0 0;
+    display: inline-block;
+    background-color: #1abc9c;
+    color: #ffffff;
   }
+
+  .tags:hover {
+    background-color: #000000;
+  }
+}
+
+ul {
+  list-style-type: none;
 }
