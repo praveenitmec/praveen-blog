@@ -3,20 +3,20 @@
     <div class= 'col-lg-8'>
       <h1> <%= @post.title %> </h1>
       <% t = @post.created_at %>
-      <p style='font-size: 14px;'><span class="glyphicon glyphicon-time"></span> Posted on 
+      <p style='font-size: 14px;'><span class="glyphicon glyphicon-time"></span> Posted on
        <%= t.strftime("%B %C, %G at  %I%p")%> </p>
 
       <p>
         <%= @post.description %>
       </p>
-      
+
       <p>
       <% @post.tags.each{|tag|%>
         <a href='<%="/posts-by-tags/#{tag.name}"%>'  class='tags'><span><%=tag.name %></span></a>
       <%}%>
       </p>
-      <% if current_user.id == @post.user.id %>
-        <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default btn-primary" %> 
+      <% if current_user && current_user.id == @post.user.id %>
+        <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default btn-primary" %>
         <%= link_to 'Back', posts_path, class: "btn btn-default btn-primary" %>
       <%end%>
     </br>
@@ -38,11 +38,11 @@
             <img class="media-object" src="http://placehold.it/64x64" alt="">
           </a>
         	<div class="media-body">
-            <h4 class="media-heading"><%= comment.user.email %>: 
+            <h4 class="media-heading"><%= comment.user.email %>:
                 <small><%= comment.created_at.strftime("%B %C, %G at  %I%p")%></small>
-            </h4>   
+            </h4>
           	<%= comment.body %>
-          	<% if comment.user == current_user %> 
+          	<% if comment.user == current_user %>
         		  <input type="button" class= "btn btn-default btn-primary"  value = "delete" id = "js-delete-comment" data-comment-id = <%=comment.id%>>
         	    <%end%>
         	</div>
@@ -63,7 +63,7 @@
  		$.ajax({
            type: "DELETE",
            url: "/delete_comment",
-           dataType: "json", 
+           dataType: "json",
            success: function (response) {
                if (response.status === "OK") {
                    $comment_div.remove();
@@ -86,7 +86,7 @@
  		$.ajax({
            type: "POST",
            url: "/create_comment",
-           dataType: "json", 
+           dataType: "json",
            success: function (response) {
                if (response.status === "OK") {
                    var comment = response.data.comment;
@@ -95,11 +95,11 @@
                                               '<img class="media-object" src="http://placehold.it/64x64" alt="">'+
                                             '</a>'+
                                             '<div class="media-body">'+
-                                            '<h4 class="media-heading">'+response.data.user+ 
+                                            '<h4 class="media-heading">'+response.data.user+
                                               '<small>'+comment.created_at+'</small>'+
-                                            '</h4>'+  
+                                            '</h4>'+
                                               comment.body +
-                                            '<input type="button" class= "btn btn-default btn-primary"  value = "delete" id = "js-delete-comment" data-comment-id =' 
+                                            '<input type="button" class= "btn btn-default btn-primary"  value = "delete" id = "js-delete-comment" data-comment-id ='
                                             +comment.id+ '></div>'+
                                         '</div>');
                    $("#comment_body").val("");
@@ -113,4 +113,3 @@
  	})
  })
 </script>
- 

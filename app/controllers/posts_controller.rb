@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show, :tag_posts]
   before_action :set_post, only: [:edit, :update, :destroy]
 
   def index
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
   end
- 
+
   def create
     @post = Post.new(post_params)
     tags = create_tags
@@ -57,7 +57,7 @@ class PostsController < ApplicationController
 
   def destroy
   	if @post
-      @post.destroy 
+      @post.destroy
       flash[:success] = 'Post Deleted Succesfully'
     end
     redirect_to posts_path
